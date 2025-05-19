@@ -1,11 +1,11 @@
 import data from '../src/data/pizza.js';
 
-var selectedPizza = {};
-var selectedSize = {};
-var pricePizza = 0;
-var priceSize = 0;
-var priceTopping = 0;
-var totalPrice = 0;
+let selectedPizza = {};
+let selectedSize = {};
+let pricePizza = 0;
+let priceSize = 0;
+let priceTopping = 0;
+let totalPrice = 0;
 
 renderMenu();
 renderSize();
@@ -16,6 +16,8 @@ document.querySelector('#menu').addEventListener('change', (e) => {
   const selectedId = e.target.value;
   selectedPizza = data.pizzas.find((p) => p.id === selectedId);
   pricePizza = selectedPizza.price;
+  priceSize = 0;
+  priceTopping = 0;
   renderSize();
   renderTopping();
   renderPrice();
